@@ -43,6 +43,15 @@ body {
     border-radius: 2vh;
 }
 
+.key > div:hover {
+    background: gray;
+    cursor: pointer;
+}
+
+#enter:hover, #clear:hover {
+    background: gray !important; 
+}
+
 .letter {
     position: absolute;
     display: flex;
@@ -54,7 +63,7 @@ body {
     font-size: 1rem;
 }
 
-.spacebar, .letter {
+.spacebar, .letter, #clear, #enter {
     background: #2b2b2b;    
     border-radius: 2vh;
     border: 1px solid yellow;
@@ -66,12 +75,40 @@ body {
     margin: auto;
 }
 
+#clear, #enter {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-width: 150px;
+}
+
+#clear {
+    left: 0;
+}
+
+#enter {
+    right: 0;
+}
+
+.click {
+    animation: click .2s;
+}
+
 .keypress {
     animation: keypress .2s forwards;
 }
 
 .backspace {
     animation: backspace .2s forwards;
+}
+@keyframes click {
+    100% {
+        background: blue;
+        height: 80%;
+        font-size: .8rem;
+    }
 }
 
 @keyframes keypress {
