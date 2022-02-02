@@ -5,6 +5,7 @@
     --hover-color: #3d3d3d;
     --text-color: rgb(235, 221, 221);
     --background-color: rgb(77, 73, 73);
+    --scale: 80%;
 }
 
 html, body {
@@ -133,7 +134,8 @@ body {
 
     to {
         background: var(--pressed-color);
-        height: 80%;
+        height: var(--scale);
+        width: var(--scale);
         font-size: .8rem;
     }
 }
@@ -141,13 +143,15 @@ body {
 @keyframes backspace {
     from {
         background: var(--pressed-color);
-        height: 80%;
+        height: var(--scale);
+        width: var(--scale);
         font-size: .8rem;
     }
 
     to {
         background: var(--key-color);
         height: 100%;
+        width: 100%;
         font-size: 1rem;
     }
 }
@@ -155,12 +159,13 @@ body {
 @keyframes disappear {
     from {
         background: var(--pressed-color);
-        height: 80%;
+        height: var(--scale);
         font-size: .8rem;
     }
 
     to {
         height: 0%;
+        width: 0%;
         font-size: 0px;
         border: none;
     }
@@ -188,9 +193,21 @@ body {
     body {
         overflow-x: hidden;
     }
+    
     #word, #score {
-        font-size: 2rem;
+        font-size: 3rem;
     }
+
+    #score {
+        position: relative;
+        bottom: 25%;
+    }
+
+    #word {
+        position: relative;
+        bottom: 15%;
+    }
+
     #keyboard {
         aspect-ratio: none;
         position: absolute;
@@ -219,6 +236,7 @@ body {
         height: 100%;
         width: 100%;
         border-color: var(--border-color);
+        font-size: 1.5rem;
     }
 
     /* spacebar */
