@@ -10,7 +10,7 @@
 html, body {
     height: 100%;
     width: 100%;
-    font-size: 50px;
+    font-size: 300%;
 }
 
 body {
@@ -167,20 +167,22 @@ body {
 }
 
 #word {
-    height: 150px;
+    height: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1rem;
 }
 
 #score {
     display: flex;
     gap: 10px;
+    font-size: 1rem;
 }
 
 @media screen and (max-width: 767px) {
     html {
-        font-size: 25px;
+        font-size: 100%;
     }
 
     #keyboard {
