@@ -178,7 +178,7 @@ body {
     gap: 10px;
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 767px) {
     html {
         font-size: 25px;
     }
@@ -187,16 +187,15 @@ body {
         aspect-ratio: none;
         position: absolute;
         transform: none;
-        /* bottom: 0; */
         height: 35%;
-        width: 95%;
-        bottom: 10px;
+        width: 98%;
+        bottom: 1%;
     }
 
     .row {
         min-height: 25%;
         width: 100%;
-        column-gap: 8px;
+        column-gap: 1%;
     }
 
     .key {
