@@ -171,13 +171,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 #score {
     display: flex;
     gap: 10px;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 @media screen and (max-width: 767px) {
@@ -188,7 +188,9 @@ body {
     body {
         overflow-x: hidden;
     }
-
+    #word, #score {
+        font-size: 2rem;
+    }
     #keyboard {
         aspect-ratio: none;
         position: absolute;
