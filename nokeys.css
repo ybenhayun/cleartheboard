@@ -10,8 +10,6 @@
 
 html, body {
     height: 100%;
-    width: 100%;
-    font-size: 300%;
     overflow: hidden;
 }
 
@@ -30,9 +28,9 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 5px;
+    gap: .375rem;
     position: relative;
-    width: clamp(1000px, 95%,  1150px);
+    width: min(95%,  1150px);
     aspect-ratio: 2.8;
     transform: perspective(500px) rotateX(20deg);
 }
@@ -41,14 +39,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: .1rem;
+    gap: .375rem;
     width: 100%;
     height: 25%;
     position: relative;
 }
 
-.funcs {
-    height: 19%;
+.keyboard-functions {
+    height: 0;
 }
 
 /* center text of all keys */
@@ -58,34 +56,9 @@ body {
     align-items: center;
     position: relative;
     height: 100%;
-}
-
-/* 1:1 ratio for all keys except spacebar, backspace, and enter */
-.row:not(.funcs) > div {
     aspect-ratio: 1;
-}
-
-.key > div:hover {
-    background: var(--hover-color);
-    cursor: pointer;
-}
-
-.key {
     border-radius: 25px;
-}
-
-#enter:hover, #clear:hover, #spacebar:hover {
-    background: var(--hover-color) !important; 
-}
-
-/* spacebar */
-.funcs > div:nth-child(2) {
-    aspect-ratio: 6;
-}
-
-/* enter and backspace */
-.funcs > div:nth-child(1), .funcs > div:nth-child(3) {
-    aspect-ratio: 2;
+    font-size: 2.5em;
 }
 
 /* fits all the keys to its wrapper */
@@ -99,10 +72,18 @@ body {
     height: 100%;
     aspect-ratio: inherit;
     border-radius: inherit;
-    font-size: 1rem;
 }
 
-#clear {
+.key > div:hover {
+    background: var(--hover-color);
+    cursor: pointer;
+}
+
+#enter:hover, #backspace:hover, #spacebar:hover {
+    background: var(--hover-color) !important; 
+}
+
+#backspace {
     left: 0;
 }
 
@@ -110,58 +91,56 @@ body {
     right: 0;
 }
 
-.click {
-    animation: click .2s;
+
+/* keypress animations */
+.pressed-letter {
+    animation: pressed-letter .2s forwards;
 }
 
-.keypress {
-    animation: keypress .2s forwards;
+.pressed-backspace {
+    animation: pressed-backspace .2s linear;
 }
 
-.backspace {
-    animation: backspace .2s linear;
+.remove-letter {
+    animation: remove-letter .2s forwards;
 }
 
-.disappear {
-    animation: disappear .2s forwards;
-}
-
-@keyframes keypress {
+@keyframes pressed-letter {
     from {
         background: var(--key-color);
         height: 100%;
-        font-size: 1rem;
+        font-size: 1em;
     }
 
     to {
         background: var(--pressed-color);
         height: var(--scale);
         width: var(--scale);
-        font-size: .8rem;
+        font-size: .8em;
     }
 }
 
-@keyframes backspace {
+@keyframes pressed-backspace {
     from {
         background: var(--pressed-color);
         height: var(--scale);
         width: var(--scale);
-        font-size: .8rem;
+        font-size: .8em;
     }
 
     to {
         background: var(--key-color);
         height: 100%;
         width: 100%;
-        font-size: 1rem;
+        font-size: 1em;
     }
 }
 
-@keyframes disappear {
+@keyframes remove-letter {
     from {
         background: var(--pressed-color);
         height: var(--scale);
-        font-size: .8rem;
+        font-size: .8em;
     }
 
     to {
@@ -177,28 +156,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
+    font-size: 2.5rem;
 }
 
 #score {
     display: flex;
     gap: 10px;
-    font-size: 1rem;
+    font-size: 2.5rem;
 }
 
-@media screen and (max-width: 767px) {
-    html {
-        font-size: 100%;
-    }
+.instructions {
+    font-size: 2rem;
+}
 
-    body {
-        overflow-x: hidden;
-    }
-    
-    #word, #score {
-        font-size: 3rem;
-    }
-
+@media screen and (max-width: 1000px) {
     #score {
         position: relative;
         bottom: 25%;
@@ -229,7 +200,7 @@ body {
         border-radius: 10px;
     }
 
-    .row:not(.funcs) > div {
+    .row:not(.keyboard-functions) > div {
         width: 9%;
     }
 
@@ -241,12 +212,27 @@ body {
     }
 
     /* spacebar */
-    .funcs > div:nth-child(2) {
+    .keyboard-functions > div:nth-child(2) {
         width: 50%;
     }
 
     /* enter and backspace */
-    .funcs > div:nth-child(1), .funcs > div:nth-child(3) {
+    .keyboard-functions > div:nth-child(1), .keyboard-functions > div:nth-child(3) {
         width: 20%;
     }   
+
+    /* instructions sentence is replaced with enter, spacebar, and backspace buttons */
+    .instructions {
+        font-size: 0;
+    }
+}
+
+@media screen and (min-width: 1001px) {
+    .keyboard-functions {
+        color: transparent;
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: -1000%;
+    }
 }

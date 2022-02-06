@@ -1,5 +1,5 @@
 var letters = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"];
-var used;
+var letters_used;
 var score;
 
 $(document).ready(function(){
@@ -19,7 +19,7 @@ $(document).ready(function(){
     $(document).on('click', '.key', function() {
         var key = $(this).children().first().attr('id');
 
-        if (key == 'clear') {
+        if (key == 'backspace') {
             hitDelete($("#word").html());
         } else if (key == 'enter') {
             hitEnter($("#word").html());
@@ -35,11 +35,6 @@ $(document).ready(function(){
             hitDelete($("#word").html());
         }
     });
-
-
-    $(window).resize(function() {
-        setFontSize();
-    })
 });
 
 function setFontSize() {
@@ -47,10 +42,10 @@ function setFontSize() {
 }
 
 function pressedLetter(letter) {
-    $("#" + letter).removeClass('backspace');
-    $("#" + letter).addClass('keypress');
+    $("#" + letter).removeClass('pressed-backspace');
+    $("#" + letter).addClass('pressed-letter');
             
-    if (!used.includes(letter)) $("#word").append(letter);
+    if (!letters_used.includes(letter)) $("#word").append(letter);
 }
 
 function hitEnter(word) {
@@ -63,19 +58,19 @@ function hitEnter(word) {
     for (var i = 0; i <= word.length; i++) {
         var letter = word.charAt(i);
         if (is_word) {
-            if (!used.includes(word.charAt(i)) && word.charAt(i) != '') { 
-                used.push(word.charAt(i));
+            if (!letters_used.includes(word.charAt(i)) && word.charAt(i) != '') { 
+                letters_used.push(word.charAt(i));
             }
 
-            $("#" + word.charAt(i)).removeClass('keypress');
-            $("#" + word.charAt(i)).addClass('disappear');
+            $("#" + word.charAt(i)).removeClass('pressed-letter');
+            $("#" + word.charAt(i)).addClass('remove-letter');
         } else {
-            $("#" + word.charAt(i)).removeClass('keypress');
-            $("#" + word.charAt(i)).addClass('backspace');
+            $("#" + word.charAt(i)).removeClass('pressed-letter');
+            $("#" + word.charAt(i)).addClass('pressed-backspace');
         }
     }
     
-    score = 26 - used.length;
+    score = 26 - letters_used.length;
     $(".points").html(score + " letters");
 }
 
@@ -84,8 +79,8 @@ function hitDelete(word) {
     $("#word").html(word.slice(0, -1));
 
     if (!$("#word").html().includes(letter)) {
-        $("#" + letter).removeClass('keypress');
-        $("#" + letter).addClass('backspace');
+        $("#" + letter).removeClass('pressed-letter');
+        $("#" + letter).addClass('pressed-backspace');
     }
 }
 
@@ -102,13 +97,13 @@ function restart() {
         }
         $(row).append("<div class = 'key'><div id = " + letters[i] + " class = 'letter'> " + letters[i] + " </div></div>");
     }
-    $('.funcs').empty();
-    $('.funcs').append("<div class = 'key'><div id = 'enter'>ENTER</div></div>");
-    $('.funcs').append("<div class = 'key'><div id = 'spacebar'>RESET</div></div>")
-    $('.funcs').append("<div class = 'key'><div id = 'clear'><i class='material-icons' style='font-size:1rem'>backspace</i></div></div>");
+    $('.keyboard-functions').empty();
+    $('.keyboard-functions').append("<div class = 'key'><div id = 'enter'>ENTER</div></div>");
+    $('.keyboard-functions').append("<div class = 'key'><div id = 'spacebar'>RESET</div></div>")
+    $('.keyboard-functions').append("<div class = 'key'><div id = 'backspace'><i class='material-icons' style='font-size:1rem'>backspace</i></div></div>");
 
     score = 26;
-    used = [];
+    letters_used = [];
     $(".points").remove();
     $("#score").append("<div class = 'points'>" + score + " letters</div>")
     $("#word").empty();
