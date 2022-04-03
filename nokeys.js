@@ -4,7 +4,7 @@ var score;
 
 $(document).ready(function(){
     restart();
-
+    
     $(document).keypress(function(e) {
         if ((e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 97 && e.keyCode <= 122)) {
             var letter = String.fromCharCode(e.which).toUpperCase();
@@ -49,10 +49,8 @@ function pressedLetter(letter) {
 }
 
 function hitEnter(word) {
-    if (!word_list.includes(word) && !word_list.includes(word.toLowerCase())) {
-        var is_word = false;
-    } else is_word = true;
-
+    let is_word = (words.includes(word))
+    
     $("#word").empty();
     
     for (var i = 0; i <= word.length; i++) {
@@ -71,11 +69,11 @@ function hitEnter(word) {
     }
     
     score = 26 - letters_used.length;
-    $(".points").html(score + " letters");
+    $(".points").html(score + " letters"); 
 }
 
 function hitDelete(word) {
-    var letter = word.at(-1);
+    let letter = word.at(-1);
     $("#word").html(word.slice(0, -1));
 
     if (!$("#word").html().includes(letter)) {
@@ -85,7 +83,7 @@ function hitDelete(word) {
 }
 
 function restart() {
-    var row = ".top";
+    let row = ".top";
     $(row).empty();
 
     for (let i = 0; i < 26; i++) {
@@ -104,6 +102,8 @@ function restart() {
 
     score = 26;
     letters_used = [];
+    words = word_list.slice();
+
     $(".points").remove();
     $("#score").append("<div class = 'points'>" + score + " letters</div>")
     $("#word").empty();
