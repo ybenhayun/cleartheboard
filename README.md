@@ -1,45 +1,26 @@
 # Solutions
+So far I've found 13 total solutions.
 
 ### 5 Word Solutions
 <details>
-VICTIMIZING   
-QUARK   
-BLOWJOB    
-SYPH   
-FEDEX   
+1) victimizing, quark, blowjob, syph, fedex   
 </details>
 
 ### 6 Word Solutions
 <details>
-SPHYNX       SPHYNX       SPHYNX       SPHYNX           
-QI           QI           QABALA       QABALA          
-BLOWJOB      BLOWJOB      TWEEZED      TWEEZED         
-MATZA        RAZZMATAZZ   FROCK        FROCK           
-FEVERED      FUCK         JIG          JUG            
-GUCK         VEGGED       VUM          VIM            
-
-QABALA       QABALA       QABALA(S)    QABALA(S)    
-VICTIMZING   VICTIMIZING  VICTIMIZING  DIGITIZING   
-JERKED       JERKED       JERKED       JOCK(S)   
-WHY          WHY          WHY          WHY    
-FUSS         PUSS         XU           VEX(ES)   
-POX          FOX          FOP(S)       FRUMP(S)    
-
-QABALA(S)    QABALA        
-VICTIMIZING  VICTIMIZING     
-JERKED       JERKED         
-WHY          WHY             
-XU           XU             
-POOF(S)      SPOOF          
+1) sphynx, qi, blowjob, matza, fevered, guck
+2) sphynx, qi, blowjob, razzmatazz, fuck, vegged
+3) sphynx, qabala, tweezed, frock, jig, vum
+4) sphynx, qabala, tweezed, frock, jug, vim
+5) qabala, victimizing, jerked, why, fuss, pox
+6) qabala, victimizing, jerked, why, puss, fox
+7) qabala(s), victimizing, jerked, why, xu, fop(s)
+8) qabala(s), victimizing, jerked, why, xu, poof(s)
+9) qabala(s), victimizing, jerked, why, xu, spooof
+10) qabala(s), digitizing, jock(s), why, vex(es), frump(s)
 </details>
 
 ### 7 Word Solutions
 <details>
-QUIZZING   
-PSST    
-BRR    
-FLOCK   
-WHY   
-VEXED   
-JAM   
+1) quizzing, psst, brr, flock, why, vexed, jam   
 </details>
