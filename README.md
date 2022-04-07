@@ -16,7 +16,7 @@ So far I've found 13 total solutions.
 6) qabala, victimizing, jerked, why, puss, fox<br/>
 7) qabala(s), victimizing, jerked, why, xu, fop(s)<br/>
 8) qabala(s), victimizing, jerked, why, xu, poof(s)<br/>
-9) qabala(s), victimizing, jerked, why, xu, spoof<br/>
+9) qabala, victimizing, jerked, why, xu, spoof<br/>
 10) qabala(s), digitizing, jock(s), why, vex(es), frump(s)<br/>
 </details>
 
