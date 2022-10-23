@@ -4,6 +4,7 @@ var score;
 
 $(document).ready(function(){
     restart();
+    angleKeyboard();
     
     $(document).keypress(function(e) {
         if ((e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 97 && e.keyCode <= 122)) {
@@ -23,8 +24,6 @@ $(document).ready(function(){
             hitDelete($("#word").html());
         } else if (key == 'enter') {
             hitEnter($("#word").html());
-        } else if (key == 'spacebar') {
-            restart();  
         } else {
             pressedLetter(key);
         }
@@ -35,10 +34,21 @@ $(document).ready(function(){
             hitDelete($("#word").html());
         }
     });
+
+    $(window).resize(function() {
+		angleKeyboard();
+	});
 });
 
-function setFontSize() {
-    console.log($("#keyboard").height());
+function angleKeyboard() {
+    // 1110 --> 20deg
+    // 425 --> 0deg 
+    let keyboard = document.getElementById('keyboard');
+    let width = screen.width;
+    let degree = Math.min(20, width/45-10);
+
+    keyboard.style.transform = 'perspective(500px) rotateX('+ degree+ 'deg)';
+
 }
 
 function pressedLetter(letter) {
@@ -69,7 +79,11 @@ function hitEnter(word) {
     }
     
     score = 26 - letters_used.length;
-    $(".points").html(score + " letters"); 
+    if (score == 0) {
+        $(".points").html("nice");
+    } else {
+        $(".points").html(score + " letters"); 
+    }
 }
 
 function hitDelete(word) {
@@ -95,10 +109,13 @@ function restart() {
         }
         $(row).append("<div class = 'key'><div id = " + letters[i] + " class = 'letter'> " + letters[i] + " </div></div>");
     }
-    $('.keyboard-functions').empty();
-    $('.keyboard-functions').append("<div class = 'key'><div id = 'enter'>ENTER</div></div>");
-    $('.keyboard-functions').append("<div class = 'key'><div id = 'spacebar'>RESET</div></div>")
-    $('.keyboard-functions').append("<div class = 'key'><div id = 'backspace'><i class='material-icons' style='font-size:1rem'>backspace</i></div></div>");
+    $(row).prepend("<div class = 'key'><div id = 'enter'>ENTER</div></div>");
+    $(row).append("<div class = 'key'><div id = 'backspace'><i class='material-icons'>backspace</i></div></div>");
+
+    // $('.keyboard-functions').empty();
+    // $('.keyboard-functions').append("<div class = 'key'><div id = 'enter'>ENTER</div></div>");
+    // $('.keyboard-functions').append("<div class = 'key'><div id = 'spacebar'>RESET</div></div>")
+    // $('.keyboard-functions').append("<div class = 'key'><div id = 'backspace'><i class='material-icons' style='font-size:1rem'>backspace</i></div></div>");
 
     score = 26;
     letters_used = [];

@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 :root {
     --border-color: black;
     --key-color: #2b2b2b;
@@ -30,19 +35,29 @@ body {
     flex-direction: column;
     gap: .375rem;
     position: relative;
-    width: min(95%,  1150px);
-    aspect-ratio: 2.8;
-    transform: perspective(500px) rotateX(20deg);
+    width: min(97%,  1150px);
+    /* width: 100%; */
+    height: 20rem;
+    /* aspect-ratio: 2.8; */
+    /* transform: perspective(500px) rotateX(20deg); */
 }
 
 .row {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: .375rem;
+    gap: min(.375rem, .5vw);
     width: 100%;
     height: 25%;
     position: relative;
+}
+
+.top, .bottom {
+    justify-content: space-between;
+}
+
+.bottom > .key, .top > .key {
+    flex: 1;
 }
 
 .keyboard-functions {
@@ -56,9 +71,10 @@ body {
     align-items: center;
     position: relative;
     height: 100%;
-    aspect-ratio: 1;
-    border-radius: 25px;
-    font-size: 2.5em;
+    width: min(100px, 9vw);
+    /* aspect-ratio: 1; */
+    border-radius: 10%;
+    font-size: min(2.5rem, 7vw);
 }
 
 /* fits all the keys to its wrapper */
@@ -70,7 +86,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
-    aspect-ratio: inherit;
+    width: 100%;
+    /* aspect-ratio: inherit; */
     border-radius: inherit;
 }
 
@@ -83,14 +100,12 @@ body {
     background: var(--hover-color) !important; 
 }
 
-#backspace {
-    left: 0;
+#enter, #backspace {
+    font-size: min(1.2rem, 3vw);
+    /* width: 3rem; */
+    /* min-width: min(150px, 13.5vw); */
+    /* margin-right: .5rem; */
 }
-
-#enter {
-    right: 0;
-}
-
 
 /* keypress animations */
 .pressed-letter {
@@ -169,6 +184,14 @@ body {
     font-size: 2rem;
 }
 
+.reset {
+    text-decoration: underline;
+}
+
+.reset:hover {
+    cursor: pointer;
+}
+/* 
 @media screen and (max-width: 1000px) {
     #score {
         position: relative;
@@ -209,25 +232,25 @@ body {
         width: 100%;
         border-color: var(--border-color);
         font-size: 1.5rem;
-    }
+    } */
 
     /* spacebar */
-    .keyboard-functions > div:nth-child(2) {
+    /* .keyboard-functions > div:nth-child(2) {
         width: 50%;
-    }
+    } */
 
     /* enter and backspace */
-    .keyboard-functions > div:nth-child(1), .keyboard-functions > div:nth-child(3) {
+    /* .keyboard-functions > div:nth-child(1), .keyboard-functions > div:nth-child(3) {
         width: 20%;
-    }   
+    }    */
 
     /* instructions sentence is replaced with enter, spacebar, and backspace buttons */
-    .instructions {
+    /* .instructions {
         font-size: 0;
     }
-}
+} */
 
-@media screen and (min-width: 1001px) {
+/* @media screen and (min-width: 1001px) {
     .keyboard-functions {
         color: transparent;
         position: absolute;
@@ -235,4 +258,4 @@ body {
         height: 0;
         top: -1000%;
     }
-}
+} */
